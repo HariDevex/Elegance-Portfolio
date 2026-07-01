@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://elegance-it-geo-infotech.vercel.app/sitemap.xml
