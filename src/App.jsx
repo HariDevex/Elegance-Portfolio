@@ -3,7 +3,7 @@ import * as Icons from 'lucide-react'
 
 const Logo = () => (
   <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
-    <img src="/Logo New.png" alt="Elegance IT & Geo Infotech" style={{height:'48px',width:'auto'}}/>
+    <img src="/Logo.png" alt="Elegance IT & Geo Infotech" style={{height:'48px',width:'auto'}}/>
     <div style={{display:'none'}} className="desktop-only">
       <span style={{fontSize:'18px',fontWeight:'700',background:'linear-gradient(135deg,#0ea5e9,#8b5cf6)','WebkitBackgroundClip':'text','WebkitTextFillColor':'transparent'}}>Elegance IT &</span>
       <br/>
@@ -413,7 +413,7 @@ const TestimonialsSection = () => {
               </div>
               <Icons.Quote style={{color:'rgba(14,165,233,.3)',width:'32px',height:'32px'}}/>
               <div style={{display:'flex',alignItems:'center',gap:'16px',marginTop:'8px',marginBottom:'16px'}}>
-                <img src={testimonial.image} alt={testimonial.name} style={{width:'56px',height:'56px',borderRadius:'50%',objectFit:'cover',border:'2px solid #0ea5e9'}}/>
+                <img src={testimonial.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=0ea5e9&color=fff&bold=true`} alt={testimonial.name} style={{width:'56px',height:'56px',borderRadius:'50%',objectFit:'cover',border:'2px solid #0ea5e9'}}/>
                 <div>
                   <h4 style={{fontWeight:'600'}}>{testimonial.name}</h4>
                   <p style={{fontSize:'14px',color:'#9ca3af'}}>{testimonial.role}, {testimonial.company}</p>

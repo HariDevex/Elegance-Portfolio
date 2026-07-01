@@ -91,6 +91,7 @@ body{
   transform:scale(1.1);
   box-shadow:0 6px 30px rgba(34,197,94,.5)
 }
+.mobile-menu-trigger{display:none}
 .mobile-menu{display:none;position:fixed;top:5rem;left:1rem;right:1rem;z-index:40}
 .mobile-menu.open{display:block}
 @media(max-width:768px){
