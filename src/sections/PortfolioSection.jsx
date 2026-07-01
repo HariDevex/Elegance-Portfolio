@@ -1,5 +1,8 @@
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { staggerContainer, staggerItem } from '../animations'
 import * as Icons from 'lucide-react'
+
 
 export const PortfolioSection = () => {
   const [selectedProject, setSelectedProject] = useState(null)
@@ -17,36 +20,80 @@ export const PortfolioSection = () => {
     <>
       <section id="portfolio" style={{padding:'96px 0',position:'relative'}}>
         <div style={{position:'absolute',inset:0,background:'linear-gradient(to bottom, transparent, rgba(139,92,246,.05), transparent)'}}/>
-        <div style={{maxWidth:'80rem',margin:'0 auto',padding:'0 16px',position:'relative',zIndex:10}}>
-          <div style={{textAlign:'center',marginBottom:'64px'}}>
-            <span style={{color:'#38bdf8',fontWeight:'500',fontSize:'14px',textTransform:'uppercase',letterSpacing:'.1em',display:'flex',alignItems:'center',justifyContent:'center',gap:'8px'}}><Icons.Briefcase/> Our Work</span>
-            <h2 className="section-title" style={{marginTop:'16px',marginBottom:'24px'}}>Featured <span className="gradient-text">Projects</span></h2>
-            <p style={{color:'#9ca3af',maxWidth:'42rem',margin:'0 auto'}}>Explore our portfolio of successful projects across LiDAR, BIM, Digital Marketing, UI/UX, and more.</p>
-          </div>
-          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit, minmax(300px, 1fr))',gap:'24px'}}>
+        <div style={{maxWidth:'80rem',margin:'0 auto',padding:'0 16px',position:'relative',zIndex:10,width:'100%'}}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+            style={{textAlign:'center',marginBottom:'64px'}}
+          >
+            <span className="section-badge" style={{justifyContent:'center'}}><Icons.Briefcase/> Our Work</span>
+            <h2 className="section-title" style={{marginTop:'16px',marginBottom:'20px'}}>Featured <span className="gradient-text">Projects</span></h2>
+            <p className="section-subtitle">Explore our portfolio of successful projects across LiDAR, BIM, Digital Marketing, UI/UX, and more.</p>
+          </motion.div>
+        </div>
+
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          style={{position:'relative',zIndex:10,width:'100%',maxWidth:'80rem',margin:'0 auto',padding:'0 16px'}}
+        >
+          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit, minmax(340px, 1fr))',gap:'24px'}}>
             {projects.map((project, i) => (
-              <div key={i} className="glass" style={{borderRadius:'16px',overflow:'hidden',cursor:'pointer'}} onClick={() => setSelectedProject(project)}>
-                <div style={{position:'relative',height:'192px',overflow:'hidden'}}>
+              <motion.div key={i} variants={staggerItem} className="card card-glow" style={{borderRadius:'24px',overflow:'hidden',cursor:'pointer',display:'flex',flexDirection:'column'}} onClick={() => setSelectedProject(project)}>
+                <div style={{position:'relative',height:'220px',overflow:'hidden',flexShrink:0}}>
                   <img src={project.image} alt={project.title} style={{width:'100%',height:'100%',objectFit:'cover',transition:'transform .5s'}}/>
-                  <div style={{position:'absolute',inset:0,background:`linear-gradient(135deg, ${project.color.split(' ')[0]}, ${project.color.split(' ')[1]})`,opacity:.6}}/>
+                  <div style={{position:'absolute',inset:0,background:`linear-gradient(135deg, ${project.color.split(' ')[0]}, ${project.color.split(' ')[1]})`,opacity:.5}}/>
                   <div style={{position:'absolute',inset:0,display:'flex',alignItems:'center',justifyContent:'center'}}>
-                    <Icons.Layers style={{color:'rgba(255,255,255,.8)',width:'40px',height:'40px'}}/>
+                    <Icons.Layers style={{color:'rgba(255,255,255,.8)',width:'48px',height:'48px'}}/>
+                  </div>
+                  <div style={{position:'absolute',top:'16px',left:'16px',padding:'6px 14px',borderRadius:'9999px',background:'rgba(255,255,255,.15)',backdropFilter:'blur(10px)',fontSize:'12px',color:'#fff',fontWeight:'500',textTransform:'uppercase',letterSpacing:'.05em'}}>
+                    {project.category}
                   </div>
                 </div>
-                <div style={{padding:'24px'}}>
-                  <span style={{fontSize:'12px',color:'#38bdf8',fontWeight:'500',textTransform:'uppercase',letterSpacing:'.05em'}}>{project.category}</span>
-                  <h3 style={{fontSize:'20px',fontWeight:'600',marginTop:'8px',marginBottom:'8px'}}>{project.title}</h3>
-                  <p style={{color:'#9ca3af',fontSize:'14px',marginBottom:'16px'}}>{project.description}</p>
-                  <span style={{fontSize:'14px',color:'#d1d5db',display:'flex',alignItems:'center',gap:'8px'}}>View Details <Icons.ExternalLink style={{width:'14px',height:'14px'}}/></span>
+                <div style={{padding:'28px',flex:1,display:'flex',flexDirection:'column'}}>
+                  <h3 style={{fontSize:'22px',fontWeight:'700',marginBottom:'12px'}}>{project.title}</h3>
+                  <p style={{color:'#9ca3af',fontSize:'14px',marginBottom:'20px',lineHeight:1.6,flex:1}}>{project.description}</p>
+                  <div style={{display:'flex',flexWrap:'wrap',gap:'8px',marginBottom:'20px'}}>
+                    {project.features.slice(0, 3).map((feature, j) => (
+                      <span key={j} style={{padding:'4px 12px',borderRadius:'9999px',background:'rgba(14,165,233,.15)',color:'#38bdf8',fontSize:'12px',fontWeight:'500'}}>
+                        {feature}
+                      </span>
+                    ))}
+                    <span style={{padding:'4px 12px',borderRadius:'9999px',background:'rgba(139,92,246,.15)',color:'#a78bfa',fontSize:'12px',fontWeight:'500'}}>
+                      +{project.features.length - 3} more
+                    </span>
+                  </div>
+                  <div style={{display:'flex',alignItems:'center',gap:'8px',color:'#38bdf8',fontSize:'14px',fontWeight:'500',borderTop:'1px solid rgba(255,255,255,.1)',paddingTop:'18px'}}>
+                    <Icons.ExternalLink style={{width:'16px',height:'16px'}}/>
+                    View Details
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
-      {selectedProject && (
-        <div className="modal-overlay" onClick={() => setSelectedProject(null)}>
-          <div className="modal-content glass" onClick={e => e.stopPropagation()}>
+      <AnimatePresence>
+        {selectedProject && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="modal-overlay"
+          onClick={() => setSelectedProject(null)}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="modal-content glass"
+            onClick={e => e.stopPropagation()}
+          >
             <div style={{position:'relative',height:'256px'}}>
               <img src={selectedProject.image} alt={selectedProject.title} style={{width:'100%',height:'100%',objectFit:'cover'}}/>
               <div style={{position:'absolute',inset:0,background:`linear-gradient(135deg, ${selectedProject.color.split(' ')[0]}, ${selectedProject.color.split(' ')[1]})`,opacity:.7}}/>
@@ -70,9 +117,10 @@ export const PortfolioSection = () => {
                 Start Your Project <Icons.ArrowRight/>
               </a>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }

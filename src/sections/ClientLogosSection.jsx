@@ -1,3 +1,6 @@
+import { motion } from 'framer-motion'
+import { staggerContainer, staggerItem } from '../animations'
+
 export const ClientLogosSection = () => {
   const clients = [
     { name: 'TechCorp', logo: 'TC' },
@@ -9,22 +12,40 @@ export const ClientLogosSection = () => {
   ]
 
   return (
-    <section style={{padding:'64px 0'}}>
+    <section style={{padding:'64px 0',position:'relative'}}>
       <div style={{maxWidth:'80rem',margin:'0 auto',padding:'0 16px'}}>
-        <div style={{textAlign:'center',marginBottom:'48px'}}>
-          <span style={{color:'#38bdf8',fontWeight:'500',fontSize:'14px',textTransform:'uppercase',letterSpacing:'.1em'}}>Trusted By</span>
-          <h3 style={{fontSize:'20px',fontWeight:'600',marginTop:'8px',color:'#9ca3af'}}>Our Trusted Partners & Clients</h3>
-        </div>
-        <div style={{display:'flex',flexWrap:'wrap',justifyContent:'center',alignItems:'center',gap:'32px'}}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          style={{textAlign:'center',marginBottom:'48px'}}
+        >
+          <span className="section-badge" style={{justifyContent:'center'}}>Trusted By</span>
+          <h3 style={{fontSize:'1.25rem',fontWeight:'500',marginTop:'8px',color:'#6b7280'}}>Our Trusted Partners & Clients</h3>
+        </motion.div>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          style={{display:'flex',flexWrap:'wrap',justifyContent:'center',alignItems:'center',gap:'24px'}}
+        >
           {clients.map((client, i) => (
-            <div key={i} className="glass" style={{borderRadius:'12px',padding:'16px 32px',display:'flex',alignItems:'center',gap:'12px',cursor:'pointer'}}>
-              <div style={{width:'40px',height:'40px',borderRadius:'8px',background:'linear-gradient(135deg,#0ea5e9,#8b5cf6)',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:'700',fontSize:'14px'}}>
+            <motion.div
+              key={i}
+              variants={staggerItem}
+              whileHover={{ y: -4, scale: 1.02 }}
+              className="glass"
+              style={{borderRadius:'12px',padding:'16px 28px',display:'flex',alignItems:'center',gap:'12px',cursor:'pointer'}}
+            >
+              <div style={{width:'42px',height:'42px',borderRadius:'10px',background:'linear-gradient(135deg,#0ea5e9,#8b5cf6)',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:'700',fontSize:'14px',color:'#fff'}}>
                 {client.logo}
               </div>
-              <span style={{fontWeight:'500',color:'#d1d5db'}}>{client.name}</span>
-            </div>
+              <span style={{fontWeight:'500',color:'#d1d5db',fontSize:'15px'}}>{client.name}</span>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
