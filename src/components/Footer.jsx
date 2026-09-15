@@ -1,82 +1,154 @@
-import { motion } from 'framer-motion'
-import * as Icons from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { site, routes } from '../data/site'
 import { Logo } from './Logo'
-import { staggerContainer, staggerItem } from '../animations'
+import { Icon } from './Icon'
+
+const columns = [
+  {
+    title: 'Services',
+    icon: 'layers',
+    links: [
+      { label: 'Enterprise Software', to: '/services' },
+      { label: 'Cloud & DevOps', to: '/services' },
+      { label: 'GIS, LiDAR & BIM', to: '/services' },
+      { label: 'AI & Data Analytics', to: '/services' },
+      { label: 'UI/UX Design', to: '/services' },
+      { label: 'Cyber Security', to: '/services' },
+    ],
+  },
+  {
+    title: 'Company',
+    icon: 'domain',
+    links: [
+      { label: 'Process', to: '/process' },
+      { label: 'Our Work', to: '/work' },
+      { label: 'About Us', to: '/about' },
+      { label: 'Tech Stack', to: '/stack' },
+      { label: 'FAQ', to: '/faq' },
+      { label: 'Contact', to: '/contact' },
+    ],
+  },
+]
 
 export const Footer = () => {
-  const footerLinks = {
-    Services: ['Web Development', 'Mobile Apps', 'LiDAR Scanning', 'BIM Modeling', 'SEO & Marketing'],
-    Company: ['About Us', 'Our Team', 'Contact', 'Careers'],
-    Legal: ['Privacy Policy', 'Terms of Service', 'Refund Policy'],
-  }
-
+  const year = new Date().getFullYear()
   return (
-    <footer style={{padding:'64px 0',borderTop:'1px solid rgba(255,255,255,.07)'}}>
-      <div style={{maxWidth:'80rem',margin:'0 auto',padding:'0 16px'}}>
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          style={{display:'grid',gridTemplateColumns:'repeat(auto-fit, minmax(200px, 1fr))',gap:'48px',marginBottom:'48px'}}
-        >
-          <motion.div variants={staggerItem}>
-            <Logo/>
-            <p style={{color:'#9ca3af',fontSize:'14px',marginTop:'16px',marginBottom:'16px',lineHeight:1.7}}>Building digital products that help businesses grow. Based in Tamil Nadu, serving clients worldwide.</p>
-            <div style={{display:'flex',alignItems:'center',gap:'8px',fontSize:'12px',color:'#6b7280',marginBottom:'16px'}}>
-              <Icons.Building style={{width:'14px',height:'14px'}}/>
-              <span>EleganceGeoInfoTech</span>
+    <footer className="w-full border-t border-outline/15 bg-surface-container-lowest text-on-surface-variant">
+      <div className="mx-auto max-w-container-max px-gutter-mobile pt-6 pb-4 lg:px-gutter-desktop">
+        <div className="grid grid-cols-1 gap-8 pt-4 md:grid-cols-2 lg:grid-cols-4 lg:pt-8">
+          <div className="flex flex-col gap-4">
+            <Link to="/">
+              <Logo />
+            </Link>
+            <p className="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
+              Architecting resilient digital foundations, enterprise cloud ecosystems, AI-accelerated
+              platforms and precision spatial engineering for modern enterprises.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {['Cloud Native', 'Enterprise AI', 'Spatial Engineering', 'DevOps Scale'].map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full bg-surface-container-low px-3 py-1 font-caption text-caption"
+                >
+                  {t}
+                </span>
+              ))}
             </div>
-            <motion.a
-              href="https://www.instagram.com/elegancegeoinfotech/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1, backgroundColor: 'rgba(14,165,233,.15)' }}
-              className="glass"
-              style={{width:'40px',height:'40px',borderRadius:'50%',display:'inline-flex',alignItems:'center',justifyContent:'center',transition:'background .3s'}}
-            >
-              <Icons.Instagram style={{width:'20px',height:'20px'}}/>
-            </motion.a>
-          </motion.div>
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <motion.div key={title} variants={staggerItem}>
-              <h4 style={{fontWeight:'600',marginBottom:'16px',display:'flex',alignItems:'center',gap:'8px',fontSize:'15px'}}>
-                {title === 'Services' && <Icons.Layers style={{color:'#38bdf8',width:'18px',height:'18px'}}/>}
-                {title === 'Company' && <Icons.Building style={{color:'#38bdf8',width:'18px',height:'18px'}}/>}
-                {title === 'Legal' && <Icons.Lock style={{color:'#38bdf8',width:'18px',height:'18px'}}/>}
-                {title}
+            <nav className="flex flex-wrap gap-3">
+              {routes.map((r) => (
+                <Link
+                  key={r.to}
+                  to={r.to}
+                  className="font-label-sm text-label-sm text-on-surface-variant transition-colors hover:text-primary"
+                >
+                  {r.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {columns.map((col) => (
+            <div key={col.title}>
+              <h4 className="flex items-center gap-2 font-title-md text-title-md text-on-surface">
+                <Icon name={col.icon} size="text-[18px]" className="text-primary/70" />
+                {col.title}
               </h4>
-              <ul style={{listStyle:'none',display:'flex',flexDirection:'column',gap:'12px'}}>
-                {links.map((link, i) => (
-                  <li key={i}>
-                    <a href="#" style={{color:'#9ca3af',fontSize:'14px',textDecoration:'none',display:'flex',alignItems:'center',gap:'8px',transition:'color .3s, padding-left .3s'}}>
-                      <Icons.ChevronRight style={{width:'12px',height:'12px',color:'#6b7280'}}/> {link}
-                    </a>
+              <ul className="mt-4 flex flex-col gap-2">
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      to={link.to}
+                      className="group flex items-center gap-1.5 font-body-sm text-body-sm text-on-surface-variant transition-colors hover:text-on-surface"
+                    >
+                      <span className="text-primary/40 transition-transform group-hover:translate-x-0.5 group-hover:text-primary">
+                        ›
+                      </span>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          style={{paddingTop:'32px',borderTop:'1px solid rgba(255,255,255,.07)'}}
-        >
-          <div style={{display:'flex',flexWrap:'wrap',alignItems:'center',justifyContent:'space-between',gap:'16px',marginBottom:'16px'}}>
-            <div style={{display:'flex',flexWrap:'wrap',alignItems:'center',gap:'20px',fontSize:'12px',color:'#6b7280'}}>
-              <div style={{display:'flex',alignItems:'center',gap:'6px'}}><Icons.Mail style={{width:'12px',height:'12px'}}/> <span>elegancegeoinfotech06@gmail.com</span></div>
-              <div style={{display:'flex',alignItems:'center',gap:'6px'}}><Icons.Phone style={{width:'12px',height:'12px'}}/> <span>+91 63691 26125</span></div>
-              <div style={{display:'flex',alignItems:'center',gap:'6px'}}><Icons.MapPin style={{width:'12px',height:'12px'}}/> <span>Thippampatti, Dharmapuri, Tamil Nadu</span></div>
+
+          <div>
+            <h4 className="flex items-center gap-2 font-title-md text-title-md text-on-surface">
+              <Icon name="contact_support" size="text-[18px]" className="text-tertiary/70" />
+              Get In Touch
+            </h4>
+            <ul className="mt-4 flex flex-col gap-3 font-body-sm text-body-sm">
+              <li>
+                <a
+                  href={`mailto:${site.email}`}
+                  className="flex items-start gap-2 transition-colors hover:text-on-surface"
+                >
+                  <Icon name="mail" size="text-[16px]" className="mt-0.5 text-tertiary/70" />
+                  <span className="break-all">{site.email}</span>
+                </a>
+              </li>
+              <li>
+                <a href={site.phoneHref} className="flex items-start gap-2 transition-colors hover:text-on-surface">
+                  <Icon name="call" size="text-[16px]" className="mt-0.5 text-tertiary/70" />
+                  <span>{site.phone}</span>
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <Icon name="location_on" size="text-[16px]" className="mt-0.5 text-tertiary/70" />
+                <span>{site.address}</span>
+              </li>
+            </ul>
+            <div className="mt-4 flex gap-2">
+              <a
+                href={site.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant transition-colors hover:bg-secondary/20 hover:text-secondary"
+              >
+                <Icon name="photo_camera" size="text-[16px]" />
+              </a>
+              <a
+                href={site.whatsappMessage}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant transition-colors hover:bg-tertiary/20 hover:text-tertiary"
+              >
+                <Icon name="chat" size="text-[16px]" />
+              </a>
             </div>
           </div>
-          <div style={{display:'flex',flexWrap:'wrap',alignItems:'center',justifyContent:'space-between',gap:'16px'}}>
-            <p style={{color:'#9ca3af',fontSize:'14px'}}>&copy; 2026 Elegance IT & Geo Infotech. All rights reserved.</p>
-            <p style={{color:'#6b7280',fontSize:'12px'}}>Crafted with care in India</p>
-          </div>
-        </motion.div>
+        </div>
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-outline/15 py-4 font-caption text-caption text-outline sm:flex-row">
+          <span>
+            © {year} {site.legalName}. All rights reserved.
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-tertiary" />
+            Crafted with precision in India
+          </span>
+        </div>
       </div>
     </footer>
   )

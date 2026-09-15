@@ -1,33 +1,36 @@
+import { Routes, Route } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { WhatsAppButton } from './components/WhatsAppButton'
-import { HeroSection } from './sections/HeroSection'
-import { AnimatedStatsSection } from './sections/AnimatedStatsSection'
-import { ServicesSection } from './sections/ServicesSection'
-import { FAQSection } from './sections/FAQSection'
-import { ClientLogosSection } from './sections/ClientLogosSection'
-import { AboutSection } from './sections/AboutSection'
-import { TestimonialsSection } from './sections/TestimonialsSection'
-import { CertificationsSection } from './sections/CertificationsSection'
-import { PortfolioSection } from './sections/PortfolioSection'
-import { ContactSection } from './sections/ContactSection'
+import { HomePage } from './pages/HomePage'
+import { ServicesPage } from './pages/ServicesPage'
+import { ProcessPage } from './pages/ProcessPage'
+import { TechStackPage } from './pages/TechStackPage'
+import { WorkPage } from './pages/WorkPage'
+import { AboutPage } from './pages/AboutPage'
+import { FAQPage } from './pages/FAQPage'
+import { ContactPage } from './pages/ContactPage'
+import { NotFoundPage } from './pages/NotFoundPage'
 
 function App() {
   return (
-    <div style={{minHeight:'100vh',background:'#0a0a0f'}}>
-      <Navbar/>
-      <HeroSection/>
-      <AnimatedStatsSection/>
-      <ServicesSection/>
-      <FAQSection/>
-      <ClientLogosSection/>
-      <AboutSection/>
-      <TestimonialsSection/>
-      <CertificationsSection/>
-      <PortfolioSection/>
-      <ContactSection/>
-      <Footer/>
-      <WhatsAppButton/>
+    <div className="min-h-screen bg-background text-on-surface">
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/process" element={<ProcessPage />} />
+          <Route path="/stack" element={<TechStackPage />} />
+          <Route path="/work" element={<WorkPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
+      <Footer />
+      <WhatsAppButton />
     </div>
   )
 }

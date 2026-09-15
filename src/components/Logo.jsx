@@ -1,16 +1,19 @@
-import { motion } from 'framer-motion'
-
-export const Logo = () => (
-  <motion.a
-    href="#home"
-    whileHover={{ scale: 1.02 }}
-    style={{display:'flex',alignItems:'center',gap:'12px',textDecoration:'none'}}
-  >
-    <img src="/Logo.png" alt="Elegance IT & Geo Infotech" style={{height:'48px',width:'auto'}}/>
-    <div className="desktop-only" style={{display:'none'}}>
-      <span style={{fontSize:'18px',fontWeight:'700',background:'linear-gradient(135deg,#0ea5e9,#8b5cf6)','WebkitBackgroundClip':'text','WebkitTextFillColor':'transparent'}}>Elegance IT &</span>
-      <br/>
-      <span style={{fontSize:'14px',color:'#9ca3af'}}>Geo Infotech</span>
-    </div>
-  </motion.a>
+export const Logo = ({ compact = false }) => (
+  <span className="group flex items-center gap-2">
+    <span className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl">
+      <img
+        src="/Logo.png"
+        alt="Elegance Infotech logo"
+        className="h-full w-full object-contain"
+      />
+    </span>
+    {!compact && (
+      <span className="flex flex-col leading-none">
+        <span className="font-headline-sm text-headline-sm text-on-surface tracking-tight transition-colors group-hover:text-primary">
+          Elegance Infotech
+        </span>
+        <span className="font-caption text-caption text-outline tracking-[0.2em] uppercase">IT & Geo Infotech</span>
+      </span>
+    )}
+  </span>
 )

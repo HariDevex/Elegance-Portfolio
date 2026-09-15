@@ -1,51 +1,38 @@
-import { motion } from 'framer-motion'
-import { staggerContainer, staggerItem } from '../animations'
+import { clients } from '../data/site'
+import { Icon } from '../components/Icon'
 
 export const ClientLogosSection = () => {
-  const clients = [
-    { name: 'TechCorp', logo: 'TC' },
-    { name: 'GeoSystems', logo: 'GS' },
-    { name: 'BuildRight', logo: 'BR' },
-    { name: 'DataPro', logo: 'DP' },
-    { name: 'CloudBase', logo: 'CB' },
-    { name: 'MapMaster', logo: 'MM' },
-  ]
+  const row = (
+    <div className="flex shrink-0 items-center gap-4 pr-4">
+      {clients.map((c) => (
+        <span
+          key={c.name}
+          className="flex items-center gap-2 rounded-xl border border-outline/15 bg-surface-container-low px-5 py-3 text-on-surface-variant transition-colors hover:border-primary-container/40 hover:text-on-surface"
+        >
+          <Icon name={c.icon} size="text-[20px]" className="text-primary/70" />
+          <span className="font-label-sm text-label-sm">{c.name}</span>
+        </span>
+      ))}
+    </div>
+  )
 
   return (
-    <section style={{padding:'64px 0',position:'relative'}}>
-      <div style={{maxWidth:'80rem',margin:'0 auto',padding:'0 16px'}}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          style={{textAlign:'center',marginBottom:'48px'}}
-        >
-          <span className="section-badge" style={{justifyContent:'center'}}>Trusted By</span>
-          <h3 style={{fontSize:'1.25rem',fontWeight:'500',marginTop:'8px',color:'#6b7280'}}>Our Trusted Partners & Clients</h3>
-        </motion.div>
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          style={{display:'flex',flexWrap:'wrap',justifyContent:'center',alignItems:'center',gap:'24px'}}
-        >
-          {clients.map((client, i) => (
-            <motion.div
-              key={i}
-              variants={staggerItem}
-              whileHover={{ y: -4, scale: 1.02 }}
-              className="glass"
-              style={{borderRadius:'12px',padding:'16px 28px',display:'flex',alignItems:'center',gap:'12px',cursor:'pointer'}}
-            >
-              <div style={{width:'42px',height:'42px',borderRadius:'10px',background:'linear-gradient(135deg,#0ea5e9,#8b5cf6)',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:'700',fontSize:'14px',color:'#fff'}}>
-                {client.logo}
-              </div>
-              <span style={{fontWeight:'500',color:'#d1d5db',fontSize:'15px'}}>{client.name}</span>
-            </motion.div>
-          ))}
-        </motion.div>
+    <section
+      aria-label="Trusted by organizations"
+      className="relative w-full overflow-hidden border-y border-outline/10 bg-surface-container-lowest py-8"
+    >
+      <div className="mb-4 flex items-center justify-center gap-3">
+        <span className="h-px w-10 bg-gradient-to-r from-transparent to-outline/50" />
+        <span className="font-label-sm text-label-sm uppercase tracking-widest text-outline">
+          Trusted by forward-thinking organizations
+        </span>
+        <span className="h-px w-10 bg-gradient-to-l from-transparent to-outline/50" />
+      </div>
+      <div className="relative flex overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
+        <div className="animate-marquee flex">
+          {row}
+          {row}
+        </div>
       </div>
     </section>
   )
