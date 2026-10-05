@@ -10,7 +10,6 @@ const columns = [
     links: [
       { label: 'Enterprise Software', to: '/services' },
       { label: 'Cloud & DevOps', to: '/services' },
-      { label: 'GIS, LiDAR & BIM', to: '/services' },
       { label: 'AI & Data Analytics', to: '/services' },
       { label: 'UI/UX Design', to: '/services' },
       { label: 'Cyber Security', to: '/services' },
@@ -41,11 +40,11 @@ export const Footer = () => {
               <Logo />
             </Link>
             <p className="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
-              Architecting resilient digital foundations, enterprise cloud ecosystems, AI-accelerated
-              platforms and precision spatial engineering for modern enterprises.
+              Architecting resilient digital foundations, enterprise cloud ecosystems, and
+              AI-accelerated platforms for modern enterprises.
             </p>
             <div className="flex flex-wrap gap-2">
-              {['Cloud Native', 'Enterprise AI', 'Spatial Engineering', 'DevOps Scale'].map((t) => (
+              {['Cloud Native', 'Enterprise AI', 'DevOps Scale', 'Product Engineering'].map((t) => (
                 <span
                   key={t}
                   className="rounded-full bg-surface-container-low px-3 py-1 font-caption text-caption"

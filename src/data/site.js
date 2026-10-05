@@ -3,7 +3,7 @@ export const site = {
   legalName: 'Elegance IT & Geo Infotech',
   tagline: 'Architecting Intelligent Software & Cloud-Native Futures',
   description:
-    'Elegance Infotech delivers high-velocity digital transformation, bespoke enterprise platforms, multi-cloud resilience, applied AI ecosystems, and precision GIS / LiDAR engineering.',
+    'Elegance Infotech delivers high-velocity digital transformation, bespoke enterprise platforms, multi-cloud resilience, and applied AI ecosystems.',
   email: 'elegancegeoinfotech06@gmail.com',
   phone: '+91 63691 26125',
   phoneHref: 'tel:+916369126125',
@@ -31,7 +31,7 @@ export const pageMeta = {
     title: 'One team for your entire',
     gradientWord: 'technology stack',
     description:
-      'Elegance Infotech is a full-stack technology partner — enterprise software, cloud-native infrastructure, applied AI, and precision spatial engineering under one roof.',
+      'Elegance Infotech is a full-stack technology partner — enterprise software, cloud-native infrastructure, and applied AI under one roof.',
   },
   services: {
     eyebrow: 'What we do',
@@ -39,7 +39,7 @@ export const pageMeta = {
     title: 'Services &',
     gradientWord: 'Solutions',
     description:
-      'Six specialised practices engineered for scale — from enterprise software and cloud-native DevOps to centimetre-accurate GIS, LiDAR and BIM engineering.',
+      'Five specialised practices engineered for scale — from enterprise software and cloud-native DevOps to applied AI and data analytics.',
   },
   process: {
     eyebrow: 'How we work',
@@ -63,7 +63,7 @@ export const pageMeta = {
     title: 'Proof in',
     gradientWord: 'Production',
     description:
-      'From enterprise platforms to spatial infrastructure — measurable outcomes, documented win-win cases, and ROI that holds up.',
+      'From enterprise platforms to production systems — measurable outcomes, documented win-win cases, and ROI that holds up.',
   },
   about: {
     eyebrow: 'About Elegance',
@@ -71,7 +71,7 @@ export const pageMeta = {
     title: 'The team behind',
     gradientWord: 'the work',
     description:
-      'Engineers, designers, spatial specialists, and cloud architects based in Tamil Nadu, serving clients across India and the world.',
+      'Engineers, designers, and cloud architects based in Tamil Nadu, serving clients across India and the world.',
   },
   faq: {
     eyebrow: 'FAQ',
@@ -126,14 +126,6 @@ export const services = [
       'Multi-cloud architectures on AWS, Azure, and GCP with automated IaC, Kubernetes orchestration, and zero-downtime CI/CD delivery pipelines.',
     tags: 'AWS / Azure / Terraform / K8s',
     accent: 'secondary',
-  },
-  {
-    icon: 'map',
-    title: 'GIS, LiDAR & BIM Engineering',
-    description:
-      'Precision mapping, LiDAR point-cloud processing, and Scan-to-BIM workflows delivering centimeter-level accuracy for infrastructure and planning.',
-    tags: 'QGIS / ArcGIS / LiDAR / Revit',
-    accent: 'tertiary',
   },
   {
     icon: 'psychology',
@@ -209,7 +201,7 @@ export const processSteps = [
   },
 ]
 
-export const techCategories = ['All Stacks', 'Cloud & DevOps', 'Frontend & Mobile', 'Backend & Data', 'AI & ML', 'GIS & Engineering']
+export const techCategories = ['All Stacks', 'Cloud & DevOps', 'Frontend & Mobile', 'Backend & Data', 'AI & ML']
 
 export const techStack = [
   // Cloud
@@ -234,11 +226,6 @@ export const techStack = [
   { name: 'PyTorch', icon: 'model_training', sub: 'Neural Modeling', category: 'AI & ML', color: 'text-primary-fixed' },
   { name: 'LangChain & RAG', icon: 'account_tree', sub: 'LLM Orchestration', category: 'AI & ML', color: 'text-primary-fixed' },
   { name: 'Pinecone & Milvus', icon: 'query_stats', sub: 'Vector Search', category: 'AI & ML', color: 'text-primary-fixed' },
-  // GIS & Engineering
-  { name: 'QGIS / ArcGIS', icon: 'map', sub: 'Spatial Analysis', category: 'GIS & Engineering', color: 'text-tertiary-fixed' },
-  { name: 'LiDAR Processing', icon: 'view_in_ar', sub: 'Point Cloud Pipelines', category: 'GIS & Engineering', color: 'text-tertiary-fixed' },
-  { name: 'BIM (Revit)', icon: 'home_work', sub: 'Scan-to-BIM', category: 'GIS & Engineering', color: 'text-tertiary-fixed' },
-  { name: 'MapLibre / Leaflet', icon: 'explore', sub: 'Web Mapping', category: 'GIS & Engineering', color: 'text-tertiary-fixed' },
 ]
 
 export const caseStudies = [
@@ -258,22 +245,6 @@ export const caseStudies = [
     image:
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=500&fit=crop',
     imageAlt: 'Futuristic financial transaction telemetry displayed on dark mode dashboards with cyan and magenta accents',
-  },
-  {
-    col: 'lg:col-span-5',
-    badge: 'GIS & LiDAR Engineering',
-    date: 'Scan-to-BIM & Mapping',
-    badgeColor: 'bg-secondary-container/20 text-secondary',
-    title: 'Enterprise Spatial Data & Infrastructure Mesh',
-    description:
-      'Constructed precision LiDAR point-cloud pipelines and Scan-to-BIM models integrating regional survey data with unified asset registration.',
-    stats: [
-      { value: '60%', label: 'Faster survey cycles', color: 'text-secondary' },
-      { value: '99.9%', label: 'Data accuracy', color: 'text-tertiary' },
-    ],
-    image:
-      'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=500&fit=crop',
-    imageAlt: 'Abstract 3D infrastructure mesh and survey data nodes illuminated with electric cyan and magenta on an obsidian backdrop',
   },
 ]
 
@@ -296,22 +267,13 @@ export const testimonials = [
     avatarClass: 'bg-secondary-container text-on-secondary',
     starClass: 'text-tertiary',
   },
-  {
-    quote:
-      'The LiDAR and BIM models they delivered helped us win a government infrastructure contract. Centimeter-level accuracy, delivered three weeks early.',
-    name: 'Devon Sterling',
-    role: 'Director of Projects, Apex Infrastructure',
-    initials: 'DS',
-    avatarClass: 'bg-tertiary-container text-on-tertiary',
-    starClass: 'text-primary',
-  },
 ]
 
 export const faqs = [
   {
     question: 'What services does Elegance Infotech offer?',
     answer:
-      'We deliver enterprise software and web platforms, cloud infrastructure and DevOps, AI and data analytics, UI/UX design, cybersecurity, and precision GIS / LiDAR / BIM engineering services.',
+      'We deliver enterprise software and web platforms, cloud infrastructure and DevOps, AI and data analytics, UI/UX design, and cybersecurity services.',
   },
   {
     question: 'How long does a typical project take?',
@@ -326,7 +288,7 @@ export const faqs = [
   {
     question: 'Which technologies do you work with?',
     answer:
-      'React, Next.js, Node.js, React Native, Flutter, Python, PyTorch, AWS, Azure, Kubernetes, Terraform, plus GIS platforms including QGIS, ArcGIS, LiDAR, and Revit BIM workflows.',
+      'React, Next.js, Node.js, React Native, Flutter, Python, PyTorch, AWS, Azure, Kubernetes, and Terraform.',
   },
   {
     question: 'Can you take over an existing project?',

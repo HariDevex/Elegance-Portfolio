@@ -7,7 +7,6 @@ import { Reveal } from '../components/Reveal'
 const practiceOptions = [
   'Enterprise Software & Web Platforms',
   'Cloud Infrastructure & DevOps',
-  'GIS, LiDAR & BIM Engineering',
   'AI & Data Analytics',
   'UI/UX & Digital Product Design',
   'Cyber Security & Compliance Audit',

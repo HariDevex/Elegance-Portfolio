@@ -71,7 +71,7 @@ export const ServicesPage = () => {
           <div className="mb-12 flex flex-col gap-3">
             <Reveal>
               <p className="font-headline-md text-headline-md text-on-surface">
-                Six specialised practices.
+                Five specialised practices.
               </p>
             </Reveal>
             <Reveal delay={80}>

@@ -17,7 +17,7 @@
 
 ## About The Project
 
-Elegance IT & Geo Infotech is a premier technology solutions provider, combining cutting-edge IT development with precision geospatial services. Our mission is to empower businesses through innovative digital solutions that drive growth and efficiency.
+Elegance IT & Geo Infotech is a premier technology solutions provider combining cutting-edge IT development with applied AI and cloud engineering. Our mission is to empower businesses through innovative digital solutions that drive growth and efficiency.
 
 ### Key Features
 
@@ -35,7 +35,6 @@ Elegance IT & Geo Infotech is a premier technology solutions provider, combining
 |---------|-------------|
 | **Web Development** | Custom websites, e-commerce, PWA |
 | **Mobile App Development** | iOS, Android, React Native, Flutter |
-| **GIS & Mapping** | Interactive maps, spatial analysis |
 | **Graphic Design** | Logo, brand identity, social media |
 | **Data Management** | Database design, analytics, reporting |
 | **Cloud Solutions** | AWS, Azure, DevOps, server management |
@@ -154,3 +153,38 @@ elegance-it-geo-infotech/
 &copy; 2026 Elegance IT & Geo Infotech. All rights reserved.
 
 </div>
+
+
+Personal information/Personal details:- NO REL YET
+Personal information/Notice period :- NO REL YET
+Personal information/Immigration and authorizations :- NO REL YET
+Personal information/Email address :- NO REL YET
+Personal information/Phone numbers :- NO REL YET 6. Personal information/Address :- NO REL YET 7. Personal information/Financial details :- NO REL YET Personal information/Resume :- NO REL YET
+Personal information/Other documents :- NO REL YET 10. Personal information/Education : NO REL YET 11. Personal information/Certifications:- NO REL Personal information/Drivers licence :- NO REL YET
+Personal information/Disability:- NO REL YET
+Personal information/Work experience :- NO REL YET
+Personal information/Professional references:- NO REL YET
+Personal information/Links :- NO REL YET
+Personal information/Skills ;- NO REL YET
+Build Your Profile :- components/Pages/Build YourProfile/index.tsx 2. Build YourProfileV2 :- components/Pages/Build YourProfile/2/index.tsx 3. Dashboard :- components/Pages/Dashboard/index.tsx
+DataPortability:- components/Pages/DataPortability/index.tsx
+Disagree :-components/Pages/Disagree/index.tsx
+Expense Details :- components/Pages/Expenses/expense-details/index.tsx [2 modals here] 7. Expenses :- components/Pages/Expenses/index.tsx [2 modals here]
+IdentificationDocumentDetails:- components/Pages/Identification DocumentDetails/index.tsx
+ManageEmailAlerts :- components/Pages/ManageEmailAlerts/index.tsx
+Support :- components/Pages/Support/index.tsx
+TimeSheetDetails:- components/Pages/TimeSheets/TimeSheetDetails/index.tsx
+WorkDocuments :- components/Pages/WorkDocuments/index.tsx
+WorkPermit :- components/Pages/WorkPermit/index.tsx
+The Legal Terms & Conditions Consent Modal [when a candidate has pending legal terms updates that must be accepted, When the candidate's profile has
+Settings/Security :- NO REL YET
+Settings/Authenticator app :- NO REL YET
+Settings/One time pass :- NO REL YET
+Settings/Request access to your personal data :- NO REL YET
+Settings/Delete account :- NO REL YET
+Dashboard/Job alerts :- NO REL YET
+Worker services/Expenses :- NO REL YET
+Job preferences/Work :- NO REL YET [Checkbox are REL]
+Job preferences/General availability:- NO REL YET [ Switch are REL] 3. Job preferences/Availability :- NO REL YET [Checkbox are REL]
+Job preferences/Location:- NO REL YET
+Job preferencommute :- NO REL YET. [Checkbox are REL]

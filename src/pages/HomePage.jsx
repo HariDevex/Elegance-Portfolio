@@ -15,7 +15,7 @@ const simpleFacts = [
   {
     icon: 'apps',
     title: 'One team, every layer',
-    text: 'Software, cloud, AI, security, design and geospatial work. You deal with one accountable team — not six vendors.',
+    text: 'Software, cloud, AI, security and design work. You deal with one accountable team — not five vendors.',
   },
   {
     icon: 'rocket_launch',
@@ -68,8 +68,8 @@ export const HomePage = () => {
               <Reveal delay={120}>
                 <p className="max-w-2xl font-body-lg text-body-lg text-on-surface-variant">
                   {site.name} is a technology company based in Tamil Nadu, serving clients across India
-                  and the world. We design, build and maintain websites, apps, cloud systems, AI tools,
-                  and precise mapping (GIS / LiDAR / BIM) — under one roof, for a fixed price, on time.
+                  and the world. We design, build and maintain websites, apps, cloud systems, and AI
+                  tools — under one roof, for a fixed price, on time.
                 </p>
               </Reveal>
 
@@ -170,7 +170,7 @@ export const HomePage = () => {
                 <Icon name="apps" size="text-[14px]" /> Our Services
               </span>
               <h2 className="max-w-xl font-headline-lg text-headline-lg-mobile text-on-surface tracking-tight lg:text-headline-lg">
-                Six areas. <span className="text-gradient">One accountable team.</span>
+                Five areas. <span className="text-gradient">One accountable team.</span>
               </h2>
             </div>
             <Link to="/services" className="btn-glass shrink-0 self-start lg:self-auto">

@@ -27,15 +27,15 @@ const values = [
   },
   {
     icon: 'public',
-    title: 'Spatial + software thinking',
-    text: 'Few teams move fluently between enterprise code and centimetre-accurate geospatial engineering. We do both under one roof.',
+    title: 'Product + platform thinking',
+    text: 'We move fluently between customer-facing products and the cloud platforms that keep them fast, safe and scalable — both under one roof.',
     accent: 'bg-tertiary-container/20 text-tertiary',
   },
 ]
 
 const milestones = [
   { year: '2016', text: 'Founded in Tamil Nadu as an IT services studio.' },
-  { year: '2018', text: 'Entered GIS & LiDAR engineering; first enterprise contracts.' },
+  { year: '2018', text: 'First enterprise contracts; long-term client partnerships begin.' },
   { year: '2021', text: 'Launched cloud-native & DevOps practice, multi-cloud delivery.' },
   { year: '2024', text: 'Added applied AI & data analytics practice.' },
   { year: 'Now', text: '250+ projects delivered across India and global clients.' },
@@ -93,13 +93,13 @@ export const AboutPage = () => {
                     of all of them.
                   </p>
                   <p>
-                    We're a compact team of engineers, designers, spatial specialists, and cloud
+                    We're a compact team of engineers, designers, and cloud
                     architects based in Tamil Nadu, serving clients across India and the world. We
                     keep the process small enough to stay honest, technical enough to stay credible,
                     and transparent enough that you always know exactly where your project stands.
                   </p>
                   <p>
-                    Software or soil survey, web storefront or LiDAR mesh — the promise is the same:
+                    Web storefront or enterprise platform — the promise is the same:
                     fixed price, real communication, and projects that ship.
                   </p>
                 </div>
